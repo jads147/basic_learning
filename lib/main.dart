@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
       // Titel der App (wird z.B. im Task-Switcher angezeigt)
       title: 'Flutter UI Tutorial',
 
+      //Hier wird das eigene Theme angewendet!!
       theme: AppTheme.lightTheme, // Statt ThemeData(...)
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
