@@ -56,17 +56,13 @@ class CustomButton extends StatelessWidget {
       // STYLE = Aussehen des Buttons
       style: ElevatedButton.styleFrom(
         // Innenabstand: 30px links/rechts, 15px oben/unten
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 15,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
 
-        backgroundColor: Colors.blue,  // Hintergrundfarbe blau
+        backgroundColor: Colors.blue, // Hintergrundfarbe blau
         foregroundColor: Colors.white, // Text- und Icon-Farbe weiß
-
-        // Form des Buttons: Abgerundete Ecken
+        // Form des Buttons: Harte Kanten
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12), // Radius 12px
+          borderRadius: BorderRadius.circular(0), // Radius 0px
         ),
       ),
     );

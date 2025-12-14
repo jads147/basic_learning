@@ -13,14 +13,16 @@ class AppTheme {
   // Definiere hier alle Farben, die deine App verwendet
   // So bleibst du konsistent und kannst alles zentral ändern
 
-  static const Color primaryColor = Color(0xFF6200EE);    // Lila - Hauptfarbe
-  static const Color secondaryColor = Color(0xFF03DAC6);  // Türkis - Akzentfarbe
-  static const Color backgroundColor = Color(0xFFF5F5F5); // Hellgrau - Hintergrund
-  static const Color surfaceColor = Colors.white;         // Weiß - Cards, etc.
-  static const Color errorColor = Color(0xFFB00020);      // Rot - Fehler
+  static const Color primaryColor = Color(0xFF6200EE); // Lila - Hauptfarbe
+  static const Color secondaryColor = Color(0xFF03DAC6); // Türkis - Akzentfarbe
+  static const Color backgroundColor = Color(
+    0xFFF5F5F5,
+  ); // Hellgrau - Hintergrund
+  static const Color surfaceColor = Colors.white; // Weiß - Cards, etc.
+  static const Color errorColor = Color(0xFFB00020); // Rot - Fehler
 
   // Text-Farben
-  static const Color textPrimaryColor = Color(0xFF000000);   // Schwarz
+  static const Color textPrimaryColor = Color(0xFF000000); // Schwarz
   static const Color textSecondaryColor = Color(0xFF757575); // Grau
 
   // ============================================
@@ -34,12 +36,12 @@ class AppTheme {
     // ==================== FARBSCHEMA ====================
     // Das ColorScheme definiert ALLE Farben der App
     colorScheme: ColorScheme.light(
-      primary: primaryColor,       // Hauptfarbe (Buttons, AppBar, etc.)
-      secondary: secondaryColor,   // Akzentfarbe (Highlights, FAB, etc.)
-      surface: surfaceColor,       // Karten, Dialoge, Menüs
-      error: errorColor,           // Fehlermeldungen
-      onPrimary: Colors.white,     // Text AUF primary-Farbe
-      onSecondary: Colors.black,   // Text AUF secondary-Farbe
+      primary: primaryColor, // Hauptfarbe (Buttons, AppBar, etc.)
+      secondary: secondaryColor, // Akzentfarbe (Highlights, FAB, etc.)
+      surface: surfaceColor, // Karten, Dialoge, Menüs
+      error: errorColor, // Fehlermeldungen
+      onPrimary: Colors.white, // Text AUF primary-Farbe
+      onSecondary: Colors.black, // Text AUF secondary-Farbe
       onSurface: textPrimaryColor, // Text AUF surface-Farbe
     ),
 
@@ -50,10 +52,10 @@ class AppTheme {
     // ==================== APP BAR THEME ====================
     // Aussehen ALLER AppBars in der App
     appBarTheme: const AppBarTheme(
-      backgroundColor: primaryColor,    // Lila Hintergrund
-      foregroundColor: Colors.white,    // Weißer Text
-      elevation: 2,                     // Leichter Schatten
-      centerTitle: true,                // Titel zentriert
+      backgroundColor: primaryColor, // Lila Hintergrund
+      foregroundColor: Colors.white, // Weißer Text
+      elevation: 2, // Leichter Schatten
+      centerTitle: true, // Titel zentriert
       titleTextStyle: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -65,7 +67,7 @@ class AppTheme {
     // Aussehen ALLER Cards in der App
     cardTheme: CardThemeData(
       color: surfaceColor,
-      elevation: 3,                      // Schatten
+      elevation: 3, // Schatten
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12), // Abgerundete Ecken
       ),
@@ -76,20 +78,12 @@ class AppTheme {
     // Aussehen ALLER ElevatedButtons in der App
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: primaryColor,    // Lila Hintergrund
-        foregroundColor: Colors.white,    // Weißer Text
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 12,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        backgroundColor: primaryColor, // Lila Hintergrund
+        foregroundColor: Colors.white, // Weißer Text
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 3,
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
 
@@ -115,23 +109,14 @@ class AppTheme {
         color: textPrimaryColor,
       ),
       // Normaler Text
-      bodyLarge: TextStyle(
-        fontSize: 16,
-        color: textPrimaryColor,
-      ),
+      bodyLarge: TextStyle(fontSize: 16, color: textPrimaryColor),
       // Kleinerer Text
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        color: textSecondaryColor,
-      ),
+      bodyMedium: TextStyle(fontSize: 14, color: textSecondaryColor),
     ),
 
     // ==================== ICON THEME ====================
     // Aussehen ALLER Icons in der App
-    iconTheme: const IconThemeData(
-      color: primaryColor,
-      size: 24,
-    ),
+    iconTheme: const IconThemeData(color: primaryColor, size: 24),
 
     // ==================== INPUT DECORATION THEME ====================
     // Aussehen ALLER TextField / TextFormField in der App
