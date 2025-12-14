@@ -2,7 +2,8 @@
 // IMPORTS - Bibliotheken einbinden
 // ============================================
 import 'package:flutter/material.dart'; // Flutter Material Design Framework
-import 'screens/home_screen.dart';      // Unser Home Screen
+import 'screens/home_screen.dart'; // Unser Home Screen
+import 'theme/app_theme.dart';
 
 // ============================================
 // MAIN FUNKTION - Der Startpunkt der App
@@ -38,15 +39,9 @@ class MyApp extends StatelessWidget {
       // Titel der App (wird z.B. im Task-Switcher angezeigt)
       title: 'Flutter UI Tutorial',
 
-      // THEME = Das Design-System der gesamten App
-      theme: ThemeData(
-        // ColorScheme aus einer Seed-Farbe generieren
-        // Alle Farben der App leiten sich von dieser Grundfarbe ab
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-
-        // Material 3 = Die neueste Version des Material Design Systems
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme, // Statt ThemeData(...)
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
 
       // HOME = Der Start-Screen der App
       // Dies ist der erste Screen, der angezeigt wird
