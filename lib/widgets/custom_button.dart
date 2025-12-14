@@ -54,16 +54,21 @@ class CustomButton extends StatelessWidget {
       ),
 
       // STYLE = Aussehen des Buttons
+      // WICHTIG: Verwendet jetzt das Theme statt hardcodierte Farben!
       style: ElevatedButton.styleFrom(
         // Innenabstand: 30px links/rechts, 15px oben/unten
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
 
-        backgroundColor: Colors.blue, // Hintergrundfarbe blau
-        foregroundColor: Colors.white, // Text- und Icon-Farbe weiß
-        // Form des Buttons: Harte Kanten
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0), // Radius 0px
-        ),
+        // NEU: Farben aus dem aktuellen Theme holen
+        // Modern Theme → Lila (primaryColor)
+        // Windows 98 Theme → Grau (win98Gray)
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+
+        // Form aus dem Theme übernehmen
+        // Modern Theme → abgerundet (12px)
+        // Windows 98 Theme → eckig (0px)
+        shape: Theme.of(context).elevatedButtonTheme.style?.shape?.resolve({}),
       ),
     );
   }
