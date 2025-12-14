@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_button.dart'; // Importiert unser Custom Button Widget
+import '../theme/windows98_theme.dart'; // Importiert Windows 98 Theme Widgets
 
 /// DETAIL SCREEN - Der zweite Screen der App
 ///
@@ -25,6 +26,10 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Prüfen, ob wir im Windows 98 Modus sind
+    final isWin98Mode = Theme.of(context).useMaterial3 == false &&
+        Theme.of(context).scaffoldBackgroundColor == Windows98Theme.win98Desktop;
+
     // SCAFFOLD = Grundgerüst des Screens
     return Scaffold(
       // APP BAR mit dynamischem Titel
@@ -32,7 +37,10 @@ class DetailScreen extends StatelessWidget {
         // Der Titel kommt aus der übergebenen Variable 'title'
         // Nicht const, weil der Wert variabel ist!
         title: Text(title),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: isWin98Mode
+            ? Windows98Theme.win98Blue
+            : Theme.of(context).colorScheme.inversePrimary,
+        foregroundColor: isWin98Mode ? Windows98Theme.win98White : null,
         // WICHTIG: Der Zurück-Button (<-) erscheint automatisch!
         // Flutter weiß, dass wir mit Navigator.push hierher gekommen sind
       ),
@@ -106,19 +114,31 @@ class DetailScreen extends StatelessWidget {
               const SizedBox(height: 50),
 
               // ==================== ZURÜCK BUTTON ====================
-              // Wieder unser CustomButton Widget!
-              CustomButton(
-                text: 'Zurück',
-                icon: Icons.arrow_back, // Pfeil nach links
+              // Verwendet Win98Button im Windows 98 Modus, sonst CustomButton
+              if (isWin98Mode)
+                Win98Button(
+                  text: 'Zurück',
+                  icon: Icons.arrow_back, // Pfeil nach links
+                  onPressed: () {
+                    // NAVIGATION ZURÜCK
+                    // Navigator.pop = Entfernt den aktuellen Screen vom "Stapel"
+                    // → Kehrt zum vorherigen Screen zurück (HomeScreen)
+                    Navigator.pop(context);
+                  },
+                )
+              else
+                CustomButton(
+                  text: 'Zurück',
+                  icon: Icons.arrow_back, // Pfeil nach links
 
-                // onPressed = Was passiert beim Klick?
-                onPressed: () {
-                  // NAVIGATION ZURÜCK
-                  // Navigator.pop = Entfernt den aktuellen Screen vom "Stapel"
-                  // → Kehrt zum vorherigen Screen zurück (HomeScreen)
-                  Navigator.pop(context);
-                },
-              ),
+                  // onPressed = Was passiert beim Klick?
+                  onPressed: () {
+                    // NAVIGATION ZURÜCK
+                    // Navigator.pop = Entfernt den aktuellen Screen vom "Stapel"
+                    // → Kehrt zum vorherigen Screen zurück (HomeScreen)
+                    Navigator.pop(context);
+                  },
+                ),
             ],
           ),
         ),
